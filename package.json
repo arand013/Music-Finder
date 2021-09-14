@@ -1,0 +1,19 @@
+{
+  "name": "music-finder",
+  "version": "1.0.0",
+  "description": "Music API Find and Save Music application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arand013/Music-Finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arand013/Music-Finder/issues"
+  },
+  "homepage": "https://github.com/arand013/Music-Finder#readme"
+}

@@ -1,4 +1,13 @@
 import React from "react";
+import {
+  Jumbotron,
+  Container,
+  Col,
+  Form,
+  Button,
+  Card,
+  CardColumns,
+} from "react-bootstrap";
 
 // import { deleteBook } from '../utils/API';
 import Auth from "../utils/auth";
@@ -7,7 +16,7 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import { REMOVE_SONG } from "../utils/mutations";
 import { GET_ME } from "../utils/queries";
 
-const SavedBooks = () => {
+const SavedSongs = () => {
   // const [userData, setUserData] = useState({});
   const [removeSong, { error }] = useMutation(REMOVE_SONG);
   const { loading, data } = useQuery(GET_ME);
@@ -60,9 +69,9 @@ const SavedBooks = () => {
             : "You have no saved songs!"}
         </h2>
         <CardColumns>
-          {userData.savedBooks.map((song) => {
+          {userData.savedSongs.map((song) => {
             return (
-              <Card key={book.songId} border="dark">
+              <Card key={song.songId} border="dark">
                 {song.image ? (
                   <Card.Img
                     src={song.image}

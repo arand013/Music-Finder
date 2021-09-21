@@ -10,8 +10,8 @@ import {
 } from "react-bootstrap";
 
 import Auth from "../utils/auth";
-// import { searchGoogleSongs } from "../utils/API";
-import { saveSongIds, getSavedSongIds } from "../utils/localStorage";
+import { searchGoogleSongs } from "../utils/API";
+import { saveSongIds, getSavedSongsIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/react-hooks";
 import { SAVE_SONG } from "../utils/mutations";
 
@@ -22,7 +22,7 @@ const SearchSongs = () => {
   const [searchInput, setSearchInput] = useState("");
   const [saveSong, { error }] = useMutation(SAVE_SONG);
   // create state to hold saved songId values
-  const [savedSongIds, setSavedSongIds] = useState(getSavedSongIds());
+  const [savedSongIds, setSavedSongIds] = useState(getSavedSongsIds());
 
   
   useEffect(() => {
@@ -62,7 +62,7 @@ const SearchSongs = () => {
   };
 
   // create function to handle saving a book to our database
-  const handleSaveBook = async (songId) => {
+  const handleSaveSong = async (songId) => {
     // find the book in `searchedBooks` state by the matching id
     const songToSave = searchedSongs.find((song) => song.songId === songId);
 

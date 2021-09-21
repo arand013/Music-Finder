@@ -22,18 +22,6 @@ export const ADD_USER = gql`
     }
   }
 `;
-<<<<<<< HEAD
-export const SAVE_BOOK = gql`
-  mutation saveBook($input: savedBook!) {
-    saveBook(input: $input) {
-      _id
-      username
-      email
-      bookCount
-      savedBooks {
-        # _id
-        bookId
-=======
 export const SAVE_SONG = gql`
   mutation saveSong($input: savedSong!) {
     saveSong(input: $input) {
@@ -44,7 +32,6 @@ export const SAVE_SONG = gql`
       savedSongs {
         # _id
         songId
->>>>>>> develop
         authors
         image
         link
@@ -55,28 +42,16 @@ export const SAVE_SONG = gql`
   }
 `;
 
-<<<<<<< HEAD
-export const REMOVE_BOOK = gql`
-  mutation removeBook($bookId: ID!) {
-    removeBook(bookId: $bookId) {
-=======
 export const REMOVE_SONG = gql`
   mutation removeSong($songId: ID!) {
     removeSong(songId: $songId) {
->>>>>>> develop
       _id
       username
       email
       bookCount
-<<<<<<< HEAD
-      savedBooks {
-        # _id
-        bookId
-=======
       savedSongs {
         # _id
         songId
->>>>>>> develop
         authors
         image
         link
@@ -85,8 +60,4 @@ export const REMOVE_SONG = gql`
       }
     }
   }
-<<<<<<< HEAD
 `;
-=======
-`;
->>>>>>> develop

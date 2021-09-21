@@ -2,8 +2,8 @@ import React from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchSongs from "./pages/SearchSongs";
-import SavedSongs from "./pages/SavedSongs";
+import SearchSongs from "./pages/SearchMusic";
+import SavedSongs from "./pages/SavedMusic";
 import Navbar from "./components/Navbar";
 
 const client = new ApolloClient({

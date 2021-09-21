@@ -31,12 +31,11 @@ export const SAVE_SONG = gql`
       songCount
       savedSongs {
         # _id
-        songId
-        authors
-        image
-        link
-        title
-        description
+        artistId
+        artistName
+        collectionViewUrl
+        collectionName
+
       }
     }
   }
@@ -48,15 +47,13 @@ export const REMOVE_SONG = gql`
       _id
       username
       email
-      bookCount
+      songCount
       savedSongs {
         # _id
-        songId
-        authors
-        image
-        link
-        title
-        description
+        artistId
+        artistName
+        collectionViewUrl
+        collectionName
       }
     }
   }

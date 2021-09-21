@@ -39,19 +39,20 @@ const SearchSongs = () => {
 
     try {
       const response = await searchGoogleSongs(searchInput);
-
+      console.log(response)
       if (!response.ok) {
         throw new error("something went wrong!");
       }
 
-      const { items } = await response.json();
+      const { results } = await response.json();
+      
+      console.log(results) 
 
-      const songData = items.map((song) => ({
-        songId: song.id,
-        authors: song.volumeInfo.authors || ["No author to display"],
-        title: song.volumeInfo.title,
-        description: song.volumeInfo.description,
-        image: song.volumeInfo.imageLinks?.thumbnail || "",
+      const songData = results.map((song) => ({
+        artistId: song.artistId,
+        artistName: song.volumeInfo.artistName || ["No author to display"],
+        collectionName: song.volumeInfo.collectionName,
+        collectionViewUrl: song.volumeInfo.imageLinks?.thumbnail || "",
       }));
 
       setSearchedSongs(songData);
@@ -100,7 +101,7 @@ const SearchSongs = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="text"
                   size="lg"
-                  placeholder="Search for a book"
+                  placeholder="Search for a song"
                 />
               </Col>
               <Col xs={12} md={4}>

@@ -2,8 +2,6 @@ import React from "react";
 import {
   Jumbotron,
   Container,
-  Col,
-  Form,
   Button,
   Card,
   CardColumns,

@@ -7,14 +7,14 @@ const songSchema = new Schema({
     required: true,
   },
   // saved book id from GoogleBooks
-  artistId: {
-    type: Integer,
+  trackId: {
+    type: String,
     required: true,
   },
-  collectionName: {
+  trackName: {
     type: String,
   },
-  collectionViewUrl: {
+  artworkUrl100: {
     type: String,
   }
 });

@@ -49,11 +49,12 @@ const SearchSongs = () => {
       console.log(results) 
 
       const songData = results.map((song) => ({
-        artistId: song.artistId,
-        artistName: song.volumeInfo.artistName || ["No author to display"],
-        collectionName: song.volumeInfo.collectionName,
-        collectionViewUrl: song.volumeInfo.imageLinks?.thumbnail || "",
+        trackId: song.trackId,
+        artistName: song.artistName || ["No author to display"],
+        trackName: song.trackName,
+        artworkUrl100: song.artworkUrl100 || ["Sorry, no image"]
       }));
+      console.log(songData);
 
       setSearchedSongs(songData);
       setSearchInput("");
@@ -123,28 +124,28 @@ const SearchSongs = () => {
         <CardColumns>
           {searchedSongs.map((song) => {
             return (
-              <Card key={song.songId} border="dark">
-                {song.image ? (
+              <Card key={song.trackId} border="dark">
+                {song.artworkUrl100 ? (
                   <Card.Img
-                    src={song.image}
-                    alt={`The cover for ${song.title}`}
+                    src={song.artworkUrl100}
+                    alt={`The cover for ${song.trackName}`}
                     variant="top"
                   />
                 ) : null}
                 <Card.Body>
-                  <Card.Title>{song.title}</Card.Title>
-                  <p className="small">Authors: {song.authors}</p>
-                  <Card.Text>{song.description}</Card.Text>
+                  <Card.Title>{song.trackName}</Card.Title>
+                  <p className="small">Artists: {song.artistName}</p>
+                  
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedSongIds?.some(
-                        (savedSongId) => savedSongId === song.songId
+                        (savedSongId) => savedSongId === song.trackId
                       )}
                       className="btn-block btn-info"
-                      onClick={() => handleSaveSong(song.songId)}
+                      onClick={() => handleSaveSong(song.trackId)}
                     >
                       {savedSongIds?.some(
-                        (savedSongId) => savedSongId === song.songId
+                        (savedSongId) => savedSongId === song.trackId
                       )
                         ? "This song has already been saved!"
                         : "Save this Song!"}

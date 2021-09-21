@@ -8,10 +8,10 @@ export const GET_ME = gql`
       email
       songCount
       savedSongs {
-        artistId
         artistName
-        collectionViewUrl
-        collectionName
+        trackId
+        trackName
+        trackViewUrl
       }
     }
   }

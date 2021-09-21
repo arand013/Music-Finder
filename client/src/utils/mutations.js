@@ -31,10 +31,10 @@ export const SAVE_SONG = gql`
       songCount
       savedSongs {
         # _id
-        artistId
         artistName
-        collectionViewUrl
-        collectionName
+        trackId
+        trackName
+        artworkUrl100
 
       }
     }
@@ -50,10 +50,10 @@ export const REMOVE_SONG = gql`
       songCount
       savedSongs {
         # _id
-        artistId
         artistName
-        collectionViewUrl
-        collectionName
+        trackId
+        trackName
+        artworkUrl100
       }
     }
   }

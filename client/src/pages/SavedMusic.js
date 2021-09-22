@@ -20,7 +20,7 @@ const SavedSongs = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || {};
 
-  const handleDeleteSong = async (songId) => {
+  const handleDeleteSong = async (trackId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -29,7 +29,7 @@ const SavedSongs = () => {
 
     try {
       const { data } = await removeSong({
-        variables: { songId },
+        variables: { trackId },
       });
 
       console.log(data);
@@ -39,7 +39,7 @@ const SavedSongs = () => {
       }
 
       // upon success, remove song's id from localStorage
-      removeSongId(songId);
+      removeSongId(trackId);
     } catch (err) {
       console.error(err);
       
@@ -69,21 +69,21 @@ const SavedSongs = () => {
         <CardColumns>
           {userData.savedSongs.map((song) => {
             return (
-              <Card key={song.songId} border="dark">
-                {song.image ? (
+              <Card key={song.trackName} border="dark">
+                {song.artworkUrl100 ? (
                   <Card.Img
-                    src={song.image}
-                    alt={`The cover for ${song.title}`}
+                    src={song.artworkUrl100}
+                    alt={`The cover for ${song.trackName}`}
                     variant="top"
                   />
                 ) : null}
                 <Card.Body>
-                  <Card.Title>{song.title}</Card.Title>
-                  <p className="small">Authors: {song.authors}</p>
-                  <Card.Text>{song.description}</Card.Text>
+                  <Card.Title>{song.trackName}</Card.Title>
+                  <p className="small">Authors: {song.artistName}</p>
+                  <Card.Text>{song.artistName}</Card.Text>
                   <Button
                     className="btn-block btn-danger"
-                    onClick={() => handleDeleteSong(song.songId)}
+                    onClick={() => handleDeleteSong(song.trackId)}
                   >
                     Delete this!
                   </Button>

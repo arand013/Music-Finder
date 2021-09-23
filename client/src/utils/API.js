@@ -42,8 +42,8 @@ export const saveSong = (songData, token) => {
 };
 
 // remove saved book data for a logged in user
-export const deleteSong = (songId, token) => {
-  return fetch(`/api/users/songd/${songId}`, {
+export const deleteSong = (trackId, token) => {
+  return fetch(`/api/users/songs/${trackId}`, {
     method: 'DELETE',
     headers: {
       authorization: `Bearer ${token}`,

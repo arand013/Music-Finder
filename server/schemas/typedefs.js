@@ -10,20 +10,18 @@ const typeDefs = gql`
     savedSongs: [Song]
   }
   type Song {
-    songId: String
-    authors: [String]
-    description: String
-    title: String
-    image: String
-    link: String
+    # _id
+    artistName: String
+    trackId: String
+    trackName: String
+    artworkUrl100: String
   }
   input savedSong {
-    description: String
-    title: String
-    songId: String
-    image: String
-    link: String
-    authors: [String]
+    # _id
+    artistName: String
+    trackId: String
+    trackName: String
+    artworkUrl100: String
   }
   type Auth {
     token: ID!

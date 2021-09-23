@@ -31,27 +31,26 @@ export const SAVE_SONG = gql`
       songCount
       savedSongs {
         # _id
-        artistName
         trackId
+        artistName
         trackName
         artworkUrl100
-
       }
     }
   }
 `;
 
 export const REMOVE_SONG = gql`
-  mutation removeSong($songId: ID!) {
-    removeSong(songId: $songId) {
+  mutation removeSong($trackId: ID!) {
+    removeSong(trackId: $trackId) {
       _id
       username
       email
       songCount
       savedSongs {
         # _id
-        artistName
         trackId
+        artistName
         trackName
         artworkUrl100
       }

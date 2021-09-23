@@ -64,9 +64,9 @@ const SearchSongs = () => {
   };
 
   // create function to handle saving a book to our database
-  const handleSaveSong = async (songId) => {
+  const handleSaveSong = async (trackId) => {
     // find the book in `searchedBooks` state by the matching id
-    const songToSave = searchedSongs.find((song) => song.songId === songId);
+    const songToSave = searchedSongs.find((song) => song.trackId === trackId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -82,7 +82,7 @@ const SearchSongs = () => {
       console.log(saveSongIds);
       
       // if book successfully saves to user's account, save book id to state
-      setSavedSongIds([...savedSongIds, songToSave.songId]);
+      setSavedSongIds([...savedSongIds, songToSave.trackId]);
     } catch (err) {
       console.error(err);
     }

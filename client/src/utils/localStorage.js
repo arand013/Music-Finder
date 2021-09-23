@@ -14,7 +14,7 @@ export const getSavedSongsIds = () => {
     }
   };
   
-  export const removeSongId = (songId) => {
+  export const removeSongId = (trackId) => {
     const savedSongIds = localStorage.getItem('saved_songs')
       ? JSON.parse(localStorage.getItem('saved_songs'))
       : null;
@@ -23,7 +23,7 @@ export const getSavedSongsIds = () => {
       return false;
     }
   
-    const updatedSavedSongIds = savedSongIds?.filter((savedSongId) => savedSongId !== songId);
+    const updatedSavedSongIds = savedSongIds?.filter((savedSongId) => savedSongId !== trackId);
     localStorage.setItem('saved_songs', JSON.stringify(updatedSavedSongIds));
   
     return true;

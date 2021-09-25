@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState  } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
@@ -12,10 +12,11 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+    <body  style={{ fontFamily:"-moz-initial", textAlign: "center", backgroundImage: " url(https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)"}} >
+      <Navbar variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            Google Songs Search
+            Itunes Songs Search
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
@@ -70,6 +71,7 @@ const AppNavbar = () => {
           </Modal.Body>
         </Tab.Container>
       </Modal>
+      </body>
     </>
   );
 };

@@ -6,9 +6,9 @@ export const getSavedSongsIds = () => {
     return savedSongIds;
   };
   
-  export const saveSongIds = (songIdArr) => {
-    if (songIdArr.length) {
-      localStorage.setItem('saved_songs', JSON.stringify(songIdArr));
+  export const saveSongIds = (trackId) => {
+    if (trackId.length) {
+      localStorage.setItem('saved_songs', JSON.stringify(trackId));
     } else {
       localStorage.removeItem('saved_songs');
     }

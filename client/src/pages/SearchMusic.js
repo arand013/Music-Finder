@@ -49,10 +49,12 @@ const SearchSongs = () => {
       console.log(results) 
 
       const songData = results.map((song) => ({
+
         trackId: song.trackId,
-        artistName: song.artistName || ["No author to display"],
+        artistName: song.artistName || ["No artist to display"],
         trackName: song.trackName,
-        artworkUrl100: song.artworkUrl100 || ["Sorry, no image"]
+        artworkUrl100: song.artworkUrl100 || ["Sorry, no image"],
+        songCount: song.songCount
       }));
       console.log(songData);
 
@@ -90,9 +92,12 @@ const SearchSongs = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+    <body style={{  fontFamily: "-moz-initial" , backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)", backgroundSize: "cover" ,backgroundRepeat: "no-repeat, repeat" }}>
+    {/* style={{            }} */}
+      <Jumbotron fluid style={{  margin: "auto ", width: "80%", padding: "95px" , botomPadding: "0px" , fontFamily: "-moz-initial", backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)"}} className="text-light">
         <Container>
-          <h1>Search for Songs!</h1>
+          <h1 style={{ textAlign: "center", fontFamily: "-moz-initial" }}
+          >Search for Songs!</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -104,9 +109,9 @@ const SearchSongs = () => {
                   size="lg"
                   placeholder="Search for a song"
                 />
-              </Col>
+              </Col >
               <Col xs={12} md={4}>
-                <Button type="submit" variant="success" size="lg">
+                <Button type="submit" variant="warning" size="lg">
                   Submit Search
                 </Button>
               </Col>
@@ -115,13 +120,13 @@ const SearchSongs = () => {
         </Container>
       </Jumbotron>
 
-      <Container>
-        <h2>
+      <Container fluid style={{ leftPadding: "0px", margin: "0px" }} >
+        <h2 style={{  padding: "150px", color: "white", textAlign: "center", fontFamily: "-moz-initial", fontSize: "80px" }}>
           {searchedSongs.length
             ? `Viewing ${searchedSongs.length} results:`
-            : "Search for a song to begin"}
+            : "Let's start looking for songs"}
         </h2>
-        <CardColumns>
+        <CardColumns style={{            }} >
           {searchedSongs.map((song) => {
             return (
               <Card key={song.trackId} border="dark">
@@ -157,6 +162,7 @@ const SearchSongs = () => {
           })}
         </CardColumns>
       </Container>
+      </body>
     </>
   );
 };

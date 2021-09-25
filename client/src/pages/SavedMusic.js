@@ -2,6 +2,7 @@ import React from "react";
 import {
   Jumbotron,
   Container,
+
   Button,
   Card,
   CardColumns,
@@ -16,8 +17,9 @@ import { GET_ME } from "../utils/queries";
 
 const SavedSongs = () => {
   // const [userData, setUserData] = useState({});
-  const [removeSong, { error }] = useMutation(REMOVE_SONG);
   const { loading, data } = useQuery(GET_ME);
+  const [removeSong, { error }] = useMutation(REMOVE_SONG);
+
   const userData = data?.me || {};
 
   const handleDeleteSong = async (trackId) => {
@@ -28,11 +30,11 @@ const SavedSongs = () => {
     }
 
     try {
-      const { data } = await removeSong({
+      const { userData } = await removeSong({
         variables: { trackId },
       });
 
-      console.log(data);
+      console.log(userData);
 
       if (error) {
         throw new Error("Something went wrong!");
@@ -60,16 +62,16 @@ const SavedSongs = () => {
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedSongs.length
-            ? `Viewing ${userData.savedSongs.length} saved ${
-                userData.savedSongs.length === 1 ? "song" : "songs"
+          {userData.savedSongs
+            ? `Viewing ${userData.savedSongs} saved ${
+                userData.songCount === 1 ? "song" : "songs"
               }:`
             : "You have no saved songs!"}
         </h2>
         <CardColumns>
           {userData.savedSongs.map((song) => {
             return (
-              <Card key={song.trackName} border="dark">
+              <Card key={song._id} border="dark">
                 {song.artworkUrl100 ? (
                   <Card.Img
                     src={song.artworkUrl100}

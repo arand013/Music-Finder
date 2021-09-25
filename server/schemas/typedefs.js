@@ -17,7 +17,6 @@ const typeDefs = gql`
     artworkUrl100: String
   }
   input savedSong {
-    # _id
     artistName: String
     trackId: String
     trackName: String

@@ -6,7 +6,7 @@ import { setContext } from '@apollo/client/link/context';
 import SearchSongs from "./pages/SearchMusic";
 import SavedSongs from "./pages/SavedMusic";
 
-import Navbar from "./components/Navbar";
+import Navbars  from "./components/Navbars";
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -46,7 +46,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
+          <Navbars />
           <Switch>
             <Route exact path="/" component={SearchSongs} />
             <Route exact path="/saved" component={SavedSongs} />

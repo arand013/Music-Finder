@@ -2,7 +2,6 @@ import React from "react";
 import {
   Jumbotron,
   Container,
-
   Button,
   Card,
   CardColumns,
@@ -16,7 +15,7 @@ import { REMOVE_SONG } from "../utils/mutations";
 import { GET_ME } from "../utils/queries";
 
 const SavedSongs = () => {
-  // const [userData, setUserData] = useState({});
+
   const { loading, data } = useQuery(GET_ME);
   const [removeSong, { error }] = useMutation(REMOVE_SONG);
 
@@ -30,11 +29,9 @@ const SavedSongs = () => {
     }
 
     try {
-      const { userData } = await removeSong({
+      await removeSong({
         variables: { trackId },
       });
-
-      console.log(userData);
 
       if (error) {
         throw new Error("Something went wrong!");
@@ -57,21 +54,21 @@ const SavedSongs = () => {
     <>
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
-          <h1>Viewing saved songs!</h1>
+          <h1>Viewing {userData.username}'s saved songs!</h1>
         </Container>
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedSongs
-            ? `Viewing ${userData.savedSongs} saved ${
-                userData.songCount === 1 ? "song" : "songs"
+          {userData.savedSongs?.length
+            ? `Viewing ${userData.savedSongs.length} saved ${
+                userData.savedSongs.length === 1 ? "song" : "songs"
               }:`
             : "You have no saved songs!"}
         </h2>
         <CardColumns>
-          {userData.savedSongs.map((song) => {
+          {userData.savedSongs?.map((song) => {
             return (
-              <Card key={song._id} border="dark">
+              <Card key={song.trackId} border="dark">
                 {song.artworkUrl100 ? (
                   <Card.Img
                     src={song.artworkUrl100}

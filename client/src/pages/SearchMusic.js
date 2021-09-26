@@ -8,11 +8,11 @@ import {
   Card,
   CardColumns,
 } from "react-bootstrap";
+import { useMutation } from "@apollo/react-hooks";
 
 import Auth from "../utils/auth";
 import { searchGoogleSongs } from "../utils/API";
 import { saveSongIds, getSavedSongsIds } from "../utils/localStorage";
-import { useMutation } from "@apollo/react-hooks";
 import { SAVE_SONG } from "../utils/mutations";
 
 const SearchSongs = () => {
@@ -20,10 +20,10 @@ const SearchSongs = () => {
   const [searchedSongs, setSearchedSongs] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
-  const [saveSong, { error }] = useMutation(SAVE_SONG);
   // create state to hold saved songId values
   const [savedSongIds, setSavedSongIds] = useState(getSavedSongsIds());
 
+  const [saveSong, { error }] = useMutation(SAVE_SONG);
   
   useEffect(() => {
     return () => saveSongIds(savedSongIds);

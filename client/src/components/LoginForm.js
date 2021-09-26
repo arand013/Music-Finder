@@ -47,12 +47,13 @@ const LoginForm = () => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form  style={{  padding: "50px" ,fontFamily: "-moz-initial" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
           variant="danger"
+          
         >
           Something went wrong with your login credentials!
         </Alert>
@@ -71,7 +72,7 @@ const LoginForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group >
           <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             type="password"
@@ -85,7 +86,7 @@ const LoginForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
+        <Button style={{  fontFamily: "-moz-initial" , backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)", backgroundSize: "cover" ,backgroundRepeat: "no-repeat, repeat" }}
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"

@@ -6,17 +6,24 @@ import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const SignupForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  // set intital form state
+  const [userFormData, setUserFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  // set state for form vaidation
   const [validated] = useState(false);
+  // set state fro alert
   const [showAlert, setShowAlert] = useState(false);
+
   const [addUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
     setUserFormData({ ...userFormData, [name]: value });
   };
-
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -32,20 +39,28 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
-
+    
       Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
+
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
     }
+
+    setUserFormData({
+      username: "",
+      email: "",
+      password: "",
+    });
 
   };
 
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form style={{  padding: "50px" ,fontFamily: "-moz-initial" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
-        <Alert
+        <Alert 
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
@@ -54,7 +69,7 @@ const SignupForm = () => {
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group>
+        <Form.Group >
           <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
             type="text"
@@ -69,7 +84,7 @@ const SignupForm = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group >
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
             type="email"
@@ -98,7 +113,7 @@ const SignupForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
+        <Button style={{  fontFamily: "-moz-initial" , backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)", backgroundSize: "cover" ,backgroundRepeat: "no-repeat, repeat" }}
           disabled={
             !(
               userFormData.username &&
@@ -112,6 +127,7 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
+      
     </>
   );
 };

@@ -2,21 +2,31 @@
   "name": "music-finder",
   "version": "1.0.0",
   "description": "Music API Find and Save Music application",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
+<<<<<<< HEAD
     "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arand013/Music-Finder.git"
+=======
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+>>>>>>> develop
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
   "bugs": {
     "url": "https://github.com/arand013/Music-Finder/issues"
   },
   "homepage": "https://github.com/arand013/Music-Finder#readme"
 }
+

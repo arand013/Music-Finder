@@ -52,7 +52,8 @@ const SavedSongs = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+    <body style={{  fontFamily: "-moz-initial" , backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)", backgroundSize: "cover" ,backgroundRepeat: "no-repeat, repeat" }}>
+      <Jumbotron fluid className="text-light bg-dark" style={{  fontFamily: "-moz-initial" , backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)", backgroundSize: "cover" ,backgroundRepeat: "no-repeat, repeat" }}>
         <Container>
           <h1>Viewing {userData.username}'s saved songs!</h1>
         </Container>
@@ -92,6 +93,7 @@ const SavedSongs = () => {
           })}
         </CardColumns>
       </Container>
+      </body>
     </>
   );
 };

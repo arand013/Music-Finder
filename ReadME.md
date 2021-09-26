@@ -20,7 +20,7 @@ To start the application, run from the root directory:
 `npm run develop`. 
 
 ## Deployment
-You can see the deployed Application [here](deployment link here).
+You can see the deployed Application [here](https://shuffle-music.herokuapp.com/).
 
 ## License
 ![license](https://img.shields.io/badge/license-MIT-brightgreen)

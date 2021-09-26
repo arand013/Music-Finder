@@ -1,4 +1,4 @@
-export const getSavedSongsIds = () => {
+export const getSavedSongIds = () => {
     const savedSongIds = localStorage.getItem('saved_songs')
       ? JSON.parse(localStorage.getItem('saved_songs'))
       : [];
@@ -6,9 +6,9 @@ export const getSavedSongsIds = () => {
     return savedSongIds;
   };
   
-  export const saveSongIds = (trackId) => {
-    if (trackId.length) {
-      localStorage.setItem('saved_songs', JSON.stringify(trackId));
+  export const saveSongIds = (trackIdArr) => {
+    if (trackIdArr.length) {
+      localStorage.setItem('saved_songs', JSON.stringify(trackIdArr));
     } else {
       localStorage.removeItem('saved_songs');
     }

@@ -12,7 +12,7 @@ import { useMutation } from "@apollo/react-hooks";
 
 import Auth from "../utils/auth";
 import { searchGoogleSongs } from "../utils/API";
-import { saveSongIds, getSavedSongsIds } from "../utils/localStorage";
+import { saveSongIds, getSavedSongIds } from "../utils/localStorage";
 import { SAVE_SONG } from "../utils/mutations";
 
 const SearchSongs = () => {
@@ -21,9 +21,9 @@ const SearchSongs = () => {
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
   // create state to hold saved songId values
-  const [savedSongIds, setSavedSongIds] = useState(getSavedSongsIds());
+  const [savedSongIds, setSavedSongIds] = useState(getSavedSongIds());
 
-  const [saveSong, { error }] = useMutation(SAVE_SONG);
+  const [saveSong] = useMutation(SAVE_SONG);
   
   useEffect(() => {
     return () => saveSongIds(savedSongIds);
@@ -39,22 +39,19 @@ const SearchSongs = () => {
 
     try {
       const response = await searchGoogleSongs(searchInput);
-      console.log(response)
+    
       if (!response.ok) {
-        throw new error("something went wrong!");
+        throw new Error("something went wrong!");
       }
 
       const { results } = await response.json();
-      
-      console.log(results) 
+        console.log(results);
 
       const songData = results.map((song) => ({
-
         trackId: song.trackId,
         artistName: song.artistName || ["No artist to display"],
         trackName: song.trackName,
         artworkUrl100: song.artworkUrl100 || ["Sorry, no image"],
-        songCount: song.songCount
       }));
       console.log(songData);
 
@@ -79,9 +76,8 @@ const SearchSongs = () => {
 
     try {
       await saveSong({
-        variables: { body: songToSave },
+        variables: { input: songToSave },
       });
-      console.log(saveSongIds);
       
       // if book successfully saves to user's account, save book id to state
       setSavedSongIds([...savedSongIds, songToSave.trackId]);

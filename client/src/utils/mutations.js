@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 export const LOGIN_USER = gql`
-mutation login($email: String!, $password: String!) {
+mutation loginUser($email: String!, $password: String!) {
   login(email: $email, password: $password) {
     token
     user {
@@ -29,6 +29,7 @@ export const SAVE_SONG = gql`
       _id
       username
       email
+      songCount
       savedSongs {
         # _id
         trackId
@@ -46,7 +47,9 @@ export const REMOVE_SONG = gql`
       _id
       username
       email
+      songCount
       savedSongs {
+        # _id
         trackId
         artistName
         trackName

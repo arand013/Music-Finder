@@ -6,13 +6,14 @@ const songSchema = new Schema({
     type: String,
     required: true,
   },
-  // saved book id from GoogleBooks
+  // saved track id from GoogleBooks
   trackId: {
     type: String,
     required: true,
   },
   trackName: {
     type: String,
+    required: true,
   },
   artworkUrl100: {
     type: String,

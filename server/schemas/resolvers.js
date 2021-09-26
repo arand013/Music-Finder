@@ -1,6 +1,6 @@
-const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
+const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
@@ -18,7 +18,7 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (parent, args) => {
-      console.log("You made it")
+
       try {
         const user = await User.create(args);
 
@@ -62,7 +62,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedSongs: { songId: args.songId } } },
+          { $pull: { savedSongs: { trackId: args.trackId } } },
           { new: true }
         );
 

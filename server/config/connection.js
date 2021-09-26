@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/anywhere", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/shuffle-music-finder", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

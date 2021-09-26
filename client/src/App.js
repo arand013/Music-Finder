@@ -5,8 +5,8 @@ import { setContext } from '@apollo/client/link/context';
 
 import SearchSongs from "./pages/SearchMusic";
 import SavedSongs from "./pages/SavedMusic";
-import Navbar from "./components/Navbar";
 
+import Navbar from "./components/Navbar";
 const httpLink = createHttpLink({
   uri: '/graphql',
 });

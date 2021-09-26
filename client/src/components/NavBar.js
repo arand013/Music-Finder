@@ -12,8 +12,7 @@ const AppNavbar = () => {
 
   return (
     <>
-    <body  style={{ fontFamily:"-moz-initial", textAlign: "center", backgroundImage: " url(https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)"}} >
-      <Navbar variant='dark' expand='lg'>
+      <Navbar variant='dark' expand='lg' style={{ fontFamily:"-moz-initial", textAlign: "center", backgroundImage: " url(https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)"}} >
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             Itunes Songs Search
@@ -71,7 +70,6 @@ const AppNavbar = () => {
           </Modal.Body>
         </Tab.Container>
       </Modal>
-      </body>
     </>
   );
 };

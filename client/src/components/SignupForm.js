@@ -57,7 +57,6 @@ const SignupForm = () => {
 
   return (
     <>
-    <body>
       {/* This is needed for the validation functionality above */}
       <Form style={{  padding: "50px" ,fontFamily: "-moz-initial" }} noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
@@ -128,7 +127,6 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
-      </body>
       
     </>
   );

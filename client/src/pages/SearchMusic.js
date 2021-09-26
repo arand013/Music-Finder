@@ -90,7 +90,7 @@ const SearchSongs = () => {
     <>
     <body style={{  fontFamily: "-moz-initial" , backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)", backgroundSize: "cover" ,backgroundRepeat: "no-repeat, repeat" }}>
     {/* style={{            }} */}
-      <Jumbotron fluid style={{  margin: "auto ", width: "80%", padding: "95px" , botomPadding: "0px" , fontFamily: "-moz-initial", backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)"}} className="text-light">
+      <Jumbotron fluid style={{  margin: "auto ", width: "80%", padding: "95px" , botomPadding: "0px" , fontFamily: "-moz-initial", backgroundImage: "url( https://www.teahub.io/photos/full/30-305786_background-music-cover-art.jpg)", backgroundSize: "cover", backgroundRepeat: "no-repeat, repeat" }} className="text-light" >
         <Container>
           <h1 style={{ textAlign: "center", fontFamily: "-moz-initial" }}
           >Search for Songs!</h1>

@@ -48,7 +48,7 @@ const SearchSongs = () => {
         console.log(results);
 
       const songData = results.map((song) => ({
-        trackId: song.trackId,
+        trackId: song.trackId || ["No Track Id"],
         artistName: song.artistName || ["No artist to display"],
         trackName: song.trackName,
         artworkUrl100: song.artworkUrl100 || ["Sorry, no image"],

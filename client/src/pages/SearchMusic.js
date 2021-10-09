@@ -62,9 +62,9 @@ const SearchSongs = () => {
     }
   };
 
-  // create function to handle saving a book to our database
+  // create function to handle saving a song to our database
   const handleSaveSong = async (trackId) => {
-    // find the book in `searchedBooks` state by the matching id
+    // find the song in `searchedSongs` state by the matching id
     const songToSave = searchedSongs.find((song) => song.trackId === trackId);
 
     // get token

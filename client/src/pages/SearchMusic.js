@@ -29,7 +29,7 @@ const SearchSongs = () => {
     return () => saveSongIds(savedSongIds);
   });
 
-  // create method to search for books and set state on form submit
+  // create method to search for Music and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
